@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head style="height: 100%">
+    <title>Basics</title>
+    <style>
+      body {
+        height: 100%;
+        margin: 0;
+        background-color: pink;
+      }
+      .title {
+        text-align: center;
+        color: white;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+      .shop {
+        width: 25%;
+        margin: 0 10px;
+      }
+      .shop img {
+        width: 100%;
+      }
+      .shop a {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .signature {
+        text-align: right;
+        margin-right: 10px;
+        font-size: large;
+        font-family: monospace;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">So Long, and Thanks for All the Fish!</h1>
+    <div class="container">
+      <div class="shop">
+        <img
+          src="data:image/png;base64,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"
+          alt="Shop 1"
+        />
+        <a href="https://www.emp-online.it/fan-merch/star-trek/"
+          >Emp | Star Trek Merchandise</a
+        >
+      </div>
+      <div class="shop">
+        <img
+          src="https://scontent.fcia8-1.fna.fbcdn.net/v/t39.30808-6/293375134_455558843246002_2401620439941026696_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=PtLSw73hN0MAb6dovvg&_nc_ht=scontent.fcia8-1.fna&oh=00_AfAI7fZVxwJvMYtrABsUVg5z65xrh_BF3rOacxs-XSKL_g&oe=662CE486"
+          alt="Shop 2"
+        />
+        <a href="https://store.networkchuck.com/collections/merch"
+          >Networkchuck Merchandise</a
+        >
+      </div>
+    </div>
+    <hr />
+    <p class="signature">&#169;flo-dolc2024</p>
+  </body>
+</html>
