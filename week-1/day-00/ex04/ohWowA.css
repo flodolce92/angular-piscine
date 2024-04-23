@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+}
+
+.text p {
+  margin: 0px;
+  padding: 20px;
+  font-size: x-large;
+  text-align: justify;
+  background-color: deepskyblue;
+  border: slateblue solid 2px;
+}
+
+.bg1,
+.bg2,
+.bg3 {
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg1 {
+  background-image: url("https://image.tmdb.org/t/p/original/nMASWgNCBlb3FW6bLYEOsm0UZL0.jpg");
+}
+
+.bg2 {
+  background-image: url("https://images.prismic.io/star-trek-untold/ZDg5YTBlOWItZmViYS00OTdiLTk3MTktODMwYmNmOWE1YWQ1_first-contact-borg-queen.jpeg?auto=compress%2Cformat&rect=0%2C0%2C1920%2C826&h=826&width=3840");
+}
+
+.bg3 {
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/40eb3ade-91e8-48e4-9923-dc622562072f/dfyo2vh-b2646ad1-306a-4f09-afb5-cf59d98d05ce.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQwZWIzYWRlLTkxZTgtNDhlNC05OTIzLWRjNjIyNTYyMDcyZlwvZGZ5bzJ2aC1iMjY0NmFkMS0zMDZhLTRmMDktYWZiNS1jZjU5ZDk4ZDA1Y2UucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.36PHMUE4HRQc_yq1-BqFRhxZXYocdUaP8yFJIQXona8");
+}
