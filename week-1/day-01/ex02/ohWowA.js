@@ -6,12 +6,13 @@
 /*   By: flo-dolc <flo-dolc@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 22:32:11 by flo-dolc          #+#    #+#             */
-/*   Updated: 2024/04/24 03:04:52 by flo-dolc         ###   ########.fr       */
+/*   Updated: 2024/04/24 03:05:45 by flo-dolc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-function flipImage() {
-  const img = document.querySelector("img");
+function flipImage(button) {
+  const card = button.closest(".card");
+  const img = card.querySelector("img");
   img.style.transform =
     img.style.transform === "rotateY(180deg)"
       ? "rotateY(0deg)"
@@ -26,8 +27,9 @@ function flipImage() {
   }, 350);
 }
 
-function flipName() {
-  const name = document.querySelector(".card h1");
+function flipName(button) {
+  const card = button.closest(".card");
+  const name = card.querySelector("h1");
   name.textContent =
     name.textContent === "Wilhelm Reinhardt"
       ? "Gianni Morandi"
@@ -38,7 +40,6 @@ function addCard() {
   var container = document.querySelector(".container");
   var cardToClone = document.querySelector(".card");
   var clonedCard = cardToClone.cloneNode(true);
+
   container.appendChild(clonedCard);
 }
-
-// Listeners
