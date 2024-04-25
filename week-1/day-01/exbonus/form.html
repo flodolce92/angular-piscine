@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>42Form</title>
+		<link rel="stylesheet" type="text/css" href="form.css" />
+	</head>
+	<body>
+		<form>
+			<label for="lastname">Last Name:</label>
+			<input
+				type="text"
+				id="lastname"
+				name="lastname"
+				maxlength="50"
+				required
+			/>
+			<label for="firstname">First Name:</label>
+			<input
+				type="text"
+				id="firstname"
+				name="firstname"
+				maxlength="50"
+				required
+			/>
+			<label>Gender:</label>
+			<label for="male">
+				<input type="radio" id="male" name="gender" value="male" required />
+				Male
+			</label>
+			<label for="female">
+				<input type="radio" id="female" name="gender" value="female" required />
+				Female
+			</label>
+			<label for="other">
+				<input type="radio" id="other" name="gender" value="other" required />
+				I prefer not to say
+			</label>
+			<label for="university">University:</label>
+			<select id="university" name="university" required>
+				<option value="" disabled selected hidden>--Select University--</option>
+				<option value="La Sapienza">La Sapienza</option>
+				<option value="Tor Vergata">Tor Vergata</option>
+				<option value="Roma Tre">Roma Tre</option>
+			</select>
+			<label for="zipcode">Zip Code:</label>
+			<input type="text" id="zipcode" name="zipcode" maxlength="5" required />
+			<label for="studentWork">
+				Student Worker:
+				<input type="checkbox" id="studentWork" name="studentWork" />
+			</label>
+			<label for="jobDescription">Job Description:</label>
+			<input
+				type="text"
+				id="jobDescription"
+				name="jobDescription"
+				maxlength="80"
+			/>
+			<div class="button-container">
+				<input type="reset" value="Reset" />
+				<input type="submit" value="Submit" />
+			</div>
+		</form>
+		<script src="form.js"></script>
+	</body>
+</html>
