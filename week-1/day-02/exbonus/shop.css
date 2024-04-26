@@ -69,34 +69,37 @@ body {
 }
 
 /* List View */
+.list-view {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+	gap: 10px;
+}
+
 .list-item {
-	display: flex;
-	align-items: center;
 	border: 2px solid #ccc;
 	border-radius: 10px;
 	padding: 10px;
-	margin: 10px;
 }
 
-.list-id {
-	font-weight: bold;
-	margin-right: 10px;
-}
-
-.list-icon {
+.list-item img {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
 	margin-right: 10px;
 }
 
-.list-details {
-	flex: 1;
+.list-item table {
+	width: 100%;
 }
 
-.list-details h2,
-.list-details p,
-.list-details h4,
-.list-details h1 {
+.list-item td {
+	padding: 5px;
+	vertical-align: middle;
+}
+
+.list-item h2,
+.list-item p,
+.list-item h4,
+.list-item h1 {
 	margin: 5px 0;
 }

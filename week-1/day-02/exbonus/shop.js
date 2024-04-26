@@ -4,51 +4,52 @@ const renderProducts = (data) => {
 	const container = document.querySelector(".container");
 	container.innerHTML = data
 		.map((item) => {
-			return isCardView
-				? `
-				<div class="card">
-					<table>
-						<tr>
-							<td>
-								<img
-									src="${item.image}"
-									alt="${item.title}"
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h1>${item.title}</h1>
-							</td>
-						</tr>
-						<tr>
-							<td>${item.description}</td>
-						</tr>
-						<tr>
-							<td><h4>${item.category}</h4></td>
-						</tr>
-						<tr>
-							<td><h1>$ ${item.price}</h1></td>
-						</tr>
-					</table>
-				</div>
-				`
-				: `
-				<div class="list-item">
-					<div class="list-id">${item.id}</div>
-					<div class="list-content">
-						<img src="${item.image}" alt="${item.title}" class="list-icon"/>
-						<div class="list-details">
-							<h2>${item.title}</h2>
-							<p>${item.description}</p>
-							<h4>${item.category}</h4>
-							<h1>$ ${item.price}</h1>
-						</div>
-					</div>
-				</div>
-				`;
+			return isCardView ? renderCard(item) : renderListItem(item);
 		})
 		.join("");
+};
+
+// Render one item in card view
+const renderCard = (item) => {
+	return `
+				<div class="card">
+						<table>
+								<tr>
+										<td><img src="${item.image}" alt="${item.title}"/></td>
+								</tr>
+								<tr>
+										<td><h1>${item.title}</h1></td>
+								</tr>
+								<tr>
+										<td>${item.description}</td>
+								</tr>
+								<tr>
+										<td><h4>${item.category}</h4></td>
+								</tr>
+								<tr>
+										<td><h1>$ ${item.price}</h1></td>
+								</tr>
+						</table>
+				</div>
+		`;
+};
+
+// Render one item in list view
+const renderListItem = (item) => {
+	return `
+				<div class="list-item">
+						<table>
+								<tr>
+										<td><div class="list-id">${item.id}</div></td>
+										<td><img src="${item.image}" alt="${item.title}" class="list-icon"/></td>
+										<td><h2>${item.title}</h2></td>
+										<td><p>${item.description}</p></td>
+										<td><h4>${item.category}</h4></td>
+										<td><h1>$ ${item.price}</h1></td>
+								</tr>
+						</table>
+				</div>
+		`;
 };
 
 // Event Listener to change view
