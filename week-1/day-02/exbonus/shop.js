@@ -50,7 +50,7 @@ const renderListItem = (item) => {
 					<td>${item.title}</td>
 					<td>${item.description}</td>
 					<td>${item.category}</td>
-					<td>$ ${item.price}</td>
+					<td>$${item.price}</td>
 			</tr>
 	`;
 };
@@ -58,6 +58,10 @@ const renderListItem = (item) => {
 // Event Listener to change view
 document.getElementById("changeView").addEventListener("click", () => {
 	isCardView = !isCardView;
+	const gridIcon = document.querySelector(".grid-icon");
+	gridIcon.innerHTML = isCardView
+		? "&#8801;"
+		: "&#9638;";
 	fetch("store.json")
 		.then((response) => response.json())
 		.then((data) => {
