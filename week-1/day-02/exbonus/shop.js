@@ -2,54 +2,57 @@ let isCardView = true;
 
 const renderProducts = (data) => {
 	const container = document.querySelector(".container");
-	container.innerHTML = data
-		.map((item) => {
-			return isCardView ? renderCard(item) : renderListItem(item);
-		})
-		.join("");
+	container.innerHTML = isCardView
+		? data.map(renderCard).join("")
+		: renderList(data);
 };
 
 // Render one item in card view
 const renderCard = (item) => {
 	return `
 				<div class="card">
-						<table>
-								<tr>
-										<td><img src="${item.image}" alt="${item.title}"/></td>
-								</tr>
-								<tr>
-										<td><h1>${item.title}</h1></td>
-								</tr>
-								<tr>
-										<td>${item.description}</td>
-								</tr>
-								<tr>
-										<td><h4>${item.category}</h4></td>
-								</tr>
-								<tr>
-										<td><h1>$ ${item.price}</h1></td>
-								</tr>
-						</table>
+					<img src="${item.image}" alt="${item.title}"/>
+					<h1>${item.title}</h1>
+					${item.description}
+					<h4>${item.category}</h4>
+					<h1>$ ${item.price}</h1>
 				</div>
 		`;
 };
 
-// Render one item in list view
+// Render the list view as a table
+const renderList = (data) => {
+	return `
+			<table>
+					<thead>
+							<tr>
+									<th>ID</th>
+									<th>Image</th>
+									<th>Title</th>
+									<th>Description</th>
+									<th>Category</th>
+									<th>Price</th>
+							</tr>
+					</thead>
+					<tbody>
+							${data.map(renderListItem).join("")}
+					</tbody>
+			</table>
+	`;
+};
+
+// Render one item in list view as a table row
 const renderListItem = (item) => {
 	return `
-				<div class="list-item">
-						<table>
-								<tr>
-										<td><div class="list-id">${item.id}</div></td>
-										<td><img src="${item.image}" alt="${item.title}" class="list-icon"/></td>
-										<td><h2>${item.title}</h2></td>
-										<td><p>${item.description}</p></td>
-										<td><h4>${item.category}</h4></td>
-										<td><h1>$ ${item.price}</h1></td>
-								</tr>
-						</table>
-				</div>
-		`;
+			<tr>
+					<td>${item.id}</td>
+					<td><img src="${item.image}" alt="${item.title}" class="list-icon"/></td>
+					<td>${item.title}</td>
+					<td>${item.description}</td>
+					<td>${item.category}</td>
+					<td>$ ${item.price}</td>
+			</tr>
+	`;
 };
 
 // Event Listener to change view
