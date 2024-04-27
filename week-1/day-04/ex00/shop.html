@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>42 Shop</title>
+		<link rel="stylesheet" type="text/css" href="shop.css" />
+	</head>
+	<body>
+		<header>
+			<div class="menu">
+				<a href="#">Home</a>
+			</div>
+			<h1>
+				Welcome to the 42 Shop
+				<button id="changeView">
+					<span class="grid-icon">&#8801;</span>
+				</button>
+			</h1>
+			<div class="cart-icon">
+				<img
+					src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png"
+					alt="Cart"
+				/>
+				<span id="cartCounter">0</span>
+			</div>
+		</header>
+
+		<div class="container"></div>
+
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<h2>Product Name</h2>
+				<div class="banner">
+					<button>Add to Cart</button>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<p>© 2024 42 Shop. All rights reserved.</p>
+		</footer>
+		<script src="shop.js"></script>
+	</body>
+</html>
