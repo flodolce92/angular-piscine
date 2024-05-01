@@ -10,23 +10,38 @@ export class AppComponent implements OnInit {
 	result: number | null = null;
 
 	ngOnInit() {
-		setInterval(() => {
-			alert("Use me Senpai! Onegaishimasu!");
-		}, 30000);
+		// setInterval(() => {
+		// 	alert("Use me Senpai! Onegaishimasu!");
+		// }, 30000);
 	}
 
 	calculate(form: any): void {
-		const num1 = parseFloat(form.value.num1.replace(',', '.'));
-		const num2 = parseFloat(form.value.num2.replace(',', '.'));
+		const num1Input = form.value.num1.replace(',', '.');
+		const num1Float = parseFloat(num1Input);
+		const num2Input = form.value.num2.replace(',', '.');
+		const num2Float = parseFloat(num2Input);
 		const operation = form.value.operation;
+		const digitsOnlyRegex = /^\d+$/;
 
-		if (isNaN(num1) || isNaN(num2)) {
+		if (num1Input === '' || num2Input === '') {
+			alert('Please enter numbers.');
+			this.result = null;
+			return;
+		}
+
+		if (!digitsOnlyRegex.test(num1Input) || !digitsOnlyRegex.test(num2Input)) {
 			alert('Please enter valid numbers.');
 			this.result = null;
 			return;
 		}
 
-		if (num1 < 0 || num2 < 0) {
+		if (isNaN(num1Float) || isNaN(num2Float)) {
+			alert('Please enter valid numbers.');
+			this.result = null;
+			return;
+		}
+
+		if (num1Float < 0 || num2Float < 0) {
 			alert("Negative numbers are not real and can't hurt you!");
 			this.result = null;
 			return;
@@ -34,17 +49,17 @@ export class AppComponent implements OnInit {
 
 		switch (operation) {
 			case 'add':
-				this.result = num1 + num2;
+				this.result = num1Float + num2Float;
 				break;
 			case 'subtract':
-				this.result = num1 - num2;
+				this.result = num1Float - num2Float;
 				break;
 			case 'multiply':
-				this.result = num1 * num2;
+				this.result = num1Float * num2Float;
 				break;
 			case 'divide':
-				if (num2 !== 0) {
-					this.result = num1 / num2;
+				if (num2Float !== 0) {
+					this.result = num1Float / num2Float;
 				} else {
 					alert('HA! you tried to create a black hole! NOICE!');
 					this.result = null;

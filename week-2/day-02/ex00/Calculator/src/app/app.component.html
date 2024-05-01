@@ -1,16 +1,16 @@
 <form #formCalc="ngForm" (ngSubmit)="calculate(formCalc)">
 	<h2>Calculator</h2>
 	<mat-form-field>
-		<input matInput type="text" name="num1" [(ngModel)]="num1" required />
+		<input matInput type="text" name="num1" ngModel required />
 	</mat-form-field>
-	<mat-select name="operation" [(ngModel)]="operation">
+	<mat-select name="operation" ngModel>
 		<mat-option value="add">+</mat-option>
 		<mat-option value="subtract">-</mat-option>
 		<mat-option value="multiply">*</mat-option>
 		<mat-option value="divide">/</mat-option>
 	</mat-select>
 	<mat-form-field>
-		<input matInput type="text" name="num2" [(ngModel)]="num2" required />
+		<input matInput type="text" name="num2" ngModel required />
 	</mat-form-field>
 
 	<button mat-raised-button type="submit">Calculate all over me!</button>
