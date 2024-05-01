@@ -1,0 +1,38 @@
+.example-card {
+	max-width: 300px;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	margin: 10px;
+}
+
+.example-header-image {
+	background-size: cover;
+}
+
+.item-image {
+	padding: 20px;
+	height: 400px;
+	width: 100%;
+	object-fit: contain;
+}
+
+.description-textarea {
+	width: 100%;
+	height: 100px;
+	resize: none;
+	overflow-y: auto;
+}
+
+.mat-mdc-card-header {
+	display: block;
+}
+
+.even-card {
+  background-color: white;
+}
+
+.odd-card {
+  background-color: #e9e9e9;
+}

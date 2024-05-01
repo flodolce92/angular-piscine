@@ -1,0 +1,43 @@
+<mat-form-field>
+	<mat-label>View</mat-label>
+	<mat-select [(value)]="selectedView">
+		<mat-option value="card">Card View</mat-option>
+		<mat-option value="table">Table View</mat-option>
+	</mat-select>
+</mat-form-field>
+
+<div class="card-container">
+	<ng-container *ngIf="selectedView === 'card'">
+		<!-- Card View -->
+		<div *ngFor="let item of items; let i = index">
+			<app-card [item]="item" [index]="i"></app-card>
+		</div>
+	</ng-container>
+	<ng-container *ngIf="selectedView === 'table'">
+		<!-- Table View -->
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Icon</th>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Category</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of items">
+					<td>{{ item.id }}</td>
+					<td>
+						<img class="icon-image" [src]="item.image" alt="Item Image" />
+					</td>
+					<td>{{ item.title }}</td>
+					<td>{{ item.description }}</td>
+					<td>{{ item.category }}</td>
+					<td>${{ item.price }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</ng-container>
+</div>
