@@ -1,54 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-	num1: number;
-	num2: number;
-	operation: string;
-	result: number | null;
+export class AppComponent implements OnInit {
+	title = 'Calculator';
+	result: number | null = null;
 
-	constructor() {
-		this.num1 = 0;
-		this.num2 = 0;
-		this.operation = 'add';
-		this.result = null;
+	ngOnInit() {
+		setInterval(() => {
+			alert("Use me Senpai! Onegaishimasu!");
+		}, 30000);
 	}
 
-	calculate(): void {
-		// Parsing
-		const parsedNum1 = parseFloat(this.num1.toString().replace(/,/g, ''));
-		const parsedNum2 = parseFloat(this.num2.toString().replace(/,/g, ''));
+	calculate(form: any): void {
+		const num1 = parseFloat(form.value.num1.replace(',', '.'));
+		const num2 = parseFloat(form.value.num2.replace(',', '.'));
+		const operation = form.value.operation;
 
-		// Validation
-		if (
-			isNaN(parsedNum1) ||
-			isNaN(parsedNum2) ||
-			(parsedNum2 === 0 && this.operation === 'divide')
-		) {
-			alert('Invalid input');
+		if (isNaN(num1) || isNaN(num2)) {
+			alert('Please enter valid numbers.');
+			this.result = null;
 			return;
 		}
 
-		// Calculation
-		switch (this.operation) {
+		if (num1 < 0 || num2 < 0) {
+			alert("Negative numbers are not real and can't hurt you!");
+			this.result = null;
+			return;
+		}
+
+		switch (operation) {
 			case 'add':
-				this.result = parsedNum1 + parsedNum2;
+				this.result = num1 + num2;
 				break;
 			case 'subtract':
-				this.result = parsedNum1 - parsedNum2;
+				this.result = num1 - num2;
 				break;
 			case 'multiply':
-				this.result = parsedNum1 * parsedNum2;
+				this.result = num1 * num2;
 				break;
 			case 'divide':
-				this.result = parsedNum1 / parsedNum2;
+				if (num2 !== 0) {
+					this.result = num1 / num2;
+				} else {
+					alert('HA! you tried to create a black hole! NOICE!');
+					this.result = null;
+				}
 				break;
 			default:
 				this.result = null;
+				break;
 		}
 	}
 }
