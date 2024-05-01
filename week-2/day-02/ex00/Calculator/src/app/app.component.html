@@ -1,0 +1,16 @@
+<form (ngSubmit)="calculate()">
+	<h2>Calculator</h2>
+	<input type="text" id="num1" name="num1" [(ngModel)]="num1" />
+	<select id="operation" name="operation" [(ngModel)]="operation">
+		<option value="add">+</option>
+		<option value="subtract">-</option>
+		<option value="multiply">*</option>
+		<option value="divide">/</option>
+	</select>
+	<input type="text" id="num2" name="num2" [(ngModel)]="num2" />
+	<button type="submit">Calculate all over me!</button>
+</form>
+<div *ngIf="result !== null">
+	<h2>The result is</h2>
+	<div>{{ result }}</div>
+</div>
