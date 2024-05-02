@@ -5,7 +5,7 @@
 	flex-wrap: wrap;
 }
 
-/* List View */
+/* Table View */
 table {
 	width: 100%;
 	border-collapse: collapse;
@@ -35,4 +35,33 @@ th {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
+}
+
+/* List View */
+.list-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.list-item {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+.item-id {
+	flex: 0 0 auto;
+	padding-right: 10px;
+}
+
+.item-icon {
+	flex: 0 0 auto;
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+}
+
+.item-details {
+	flex: 1 1 auto;
 }
