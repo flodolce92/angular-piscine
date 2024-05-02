@@ -3,6 +3,7 @@
 	<mat-select [(value)]="selectedView">
 		<mat-option value="card">Card View</mat-option>
 		<mat-option value="table">Table View</mat-option>
+		<mat-option value="list">List View</mat-option>
 	</mat-select>
 </mat-form-field>
 
@@ -29,7 +30,9 @@
 			<tbody>
 				<tr *ngFor="let item of items">
 					<td>{{ item.id }}</td>
-					<td><img class="icon-image" [src]="item.image" alt="Item Image"></td>
+					<td>
+						<img class="icon-image" [src]="item.image" alt="Item Image" />
+					</td>
 					<td>{{ item.title }}</td>
 					<td>{{ item.description }}</td>
 					<td>{{ item.category }}</td>
@@ -37,5 +40,20 @@
 				</tr>
 			</tbody>
 		</table>
+	</ng-container>
+	<!-- List view -->
+	<ng-container *ngIf="selectedView === 'list'">
+		<div class="list-container">
+			<div class="list-item" *ngFor="let item of items">
+				<div class="item-id">{{ item.id }}</div>
+				<img class="item-icon" [src]="item.image" alt="Item Image" />
+				<div class="item-details">
+					<div class="item-name">{{ item.title }}</div>
+					<div class="item-category">{{ item.category }}</div>
+					<div class="item-description">{{ item.description }}</div>
+					<div class="item-price">$ {{ item.price }}</div>
+				</div>
+			</div>
+		</div>
 	</ng-container>
 </div>
