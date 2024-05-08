@@ -24,6 +24,10 @@ export class ItemListComponent implements OnInit {
 	}
 
 	addItem(form: any) {
+		if (form.invalid) {
+			return;
+		}
+
 		const newItem = {
 			title: form.value.title,
 			price: form.value.price,
