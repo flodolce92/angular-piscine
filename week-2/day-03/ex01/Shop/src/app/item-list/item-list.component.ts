@@ -23,6 +23,16 @@ export class ItemListComponent implements OnInit {
 		this.showForm = !this.showForm;
 	}
 
+	handleModalClick(event: MouseEvent) {
+		if (event.target === event.currentTarget) {
+			this.toggleForm();
+		}
+	}
+
+	handleModalContentClick(event: MouseEvent) {
+		event.stopPropagation();
+	}
+
 	addItem(form: any) {
 		if (form.invalid) {
 			return;
