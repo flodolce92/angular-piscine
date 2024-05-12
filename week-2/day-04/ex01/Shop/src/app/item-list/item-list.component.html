@@ -7,8 +7,6 @@
 	</mat-select>
 </mat-form-field>
 
-<button mat-raised-button (click)="toggleForm()">Add an Item</button>
-
 <div class="card-container">
 	<!-- Card View -->
 	<ng-container *ngIf="selectedView === 'card'">
@@ -60,44 +58,4 @@
 			</div>
 		</div>
 	</ng-container>
-</div>
-
-<!-- Modal -->
-<div class="modal-bg" *ngIf="showForm" (click)="handleModalClick($event)">
-	<div class="modal" (click)="handleModalContentClick($event)">
-		<h3>Add New Item</h3>
-		<form #addItemForm="ngForm" (ngSubmit)="addItem(addItemForm)">
-			<mat-form-field>
-				<input matInput placeholder="Title" name="title" ngModel required #title="ngModel" />
-				<mat-error *ngIf="title.invalid && (title.dirty || title.touched)">
-					Title is required
-				</mat-error>
-			</mat-form-field>
-			<mat-form-field>
-				<input matInput placeholder="Price" name="price" type="number" ngModel required #price="ngModel" />
-				<mat-error *ngIf="price.invalid && (price.dirty || price.touched)">
-					Price is required and must be a valid number
-				</mat-error>
-			</mat-form-field>
-			<mat-form-field>
-				<input matInput placeholder="Description" name="description" ngModel required #description="ngModel" />
-				<mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
-					Description is required
-				</mat-error>
-			</mat-form-field>
-			<mat-form-field>
-				<input matInput placeholder="Image URL" name="image" ngModel required #image="ngModel" />
-				<mat-error *ngIf="image.invalid && (image.dirty || image.touched)">
-					Image URL is required
-				</mat-error>
-			</mat-form-field>
-			<mat-form-field>
-				<input matInput placeholder="Category" name="category" ngModel required #category="ngModel" />
-				<mat-error *ngIf="category.invalid && (category.dirty || category.touched)">
-					Category is required
-				</mat-error>
-			</mat-form-field>
-			<button mat-raised-button type="submit" color="primary" [disabled]="addItemForm.invalid">Add Item</button>
-		</form>
-	</div>
 </div>
