@@ -1,0 +1,20 @@
+<nav class="navbar">
+	<div class="logo">
+		<img src="https://1000logos.net/wp-content/uploads/2017/06/Star-Trek-Symbol.jpg" alt="Logo">
+	</div>
+	<div class="menu-items">
+		<ul>
+			<li [ngClass]="{'active': isActive('/home')}"><a routerLink="/home">Home</a></li>
+			<li [ngClass]="{'active': isActive('/product')}"><a routerLink="/product">Product</a></li>
+			<li [ngClass]="{'active': isActive('/insert')}"><a routerLink="/insert">Insert</a></li>
+		</ul>
+	</div>
+	<div class="search-bar">
+		<input type="text" placeholder="Search">
+	</div>
+	<div class="social-icons">
+		<a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+		<a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+		<a href="https://www.tiktok.com"><i class="fab fa-tiktok"></i></a>
+	</div>
+</nav>
