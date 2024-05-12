@@ -32,6 +32,8 @@ export class InsertComponent {
 
 		this.itemService.addItem(newItem).subscribe((item) => {
 			this.items.push(item);
+			console.log('Item added successfully');
+			console.log(item);
 			form.resetForm();
 		});
 	}
