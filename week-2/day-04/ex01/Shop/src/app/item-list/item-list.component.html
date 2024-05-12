@@ -1,0 +1,103 @@
+<mat-form-field>
+	<mat-label>View</mat-label>
+	<mat-select [(value)]="selectedView">
+		<mat-option value="card">Card View</mat-option>
+		<mat-option value="table">Table View</mat-option>
+		<mat-option value="list">List View</mat-option>
+	</mat-select>
+</mat-form-field>
+
+<button mat-raised-button (click)="toggleForm()">Add an Item</button>
+
+<div class="card-container">
+	<!-- Card View -->
+	<ng-container *ngIf="selectedView === 'card'">
+		<div *ngFor="let item of items; let i = index">
+			<app-card [item]="item" [index]="i"></app-card>
+		</div>
+	</ng-container>
+
+	<!-- Table View -->
+	<ng-container *ngIf="selectedView === 'table'">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Icon</th>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Category</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of items">
+					<td>{{ item.id }}</td>
+					<td>
+						<img class="icon-image" [src]="item.image" alt="Item Image" />
+					</td>
+					<td>{{ item.title }}</td>
+					<td>{{ item.description }}</td>
+					<td>{{ item.category }}</td>
+					<td>${{ item.price }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</ng-container>
+
+	<!-- List view -->
+	<ng-container *ngIf="selectedView === 'list'">
+		<div class="list-container">
+			<div class="list-item" *ngFor="let item of items">
+				<div class="item-id">{{ item.id }}</div>
+				<img class="item-icon" [src]="item.image" alt="Item Image" />
+				<div class="item-details">
+					<div class="item-name">{{ item.title }}</div>
+					<div class="item-category">{{ item.category }}</div>
+					<div class="item-description">{{ item.description }}</div>
+					<div class="item-price">$ {{ item.price }}</div>
+				</div>
+			</div>
+		</div>
+	</ng-container>
+</div>
+
+<!-- Modal -->
+<div class="modal-bg" *ngIf="showForm" (click)="handleModalClick($event)">
+	<div class="modal" (click)="handleModalContentClick($event)">
+		<h3>Add New Item</h3>
+		<form #addItemForm="ngForm" (ngSubmit)="addItem(addItemForm)">
+			<mat-form-field>
+				<input matInput placeholder="Title" name="title" ngModel required #title="ngModel" />
+				<mat-error *ngIf="title.invalid && (title.dirty || title.touched)">
+					Title is required
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Price" name="price" type="number" ngModel required #price="ngModel" />
+				<mat-error *ngIf="price.invalid && (price.dirty || price.touched)">
+					Price is required and must be a valid number
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Description" name="description" ngModel required #description="ngModel" />
+				<mat-error *ngIf="description.invalid && (description.dirty || description.touched)">
+					Description is required
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Image URL" name="image" ngModel required #image="ngModel" />
+				<mat-error *ngIf="image.invalid && (image.dirty || image.touched)">
+					Image URL is required
+				</mat-error>
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput placeholder="Category" name="category" ngModel required #category="ngModel" />
+				<mat-error *ngIf="category.invalid && (category.dirty || category.touched)">
+					Category is required
+				</mat-error>
+			</mat-form-field>
+			<button mat-raised-button type="submit" color="primary" [disabled]="addItemForm.invalid">Add Item</button>
+		</form>
+	</div>
+</div>

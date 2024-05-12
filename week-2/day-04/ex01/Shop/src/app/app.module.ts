@@ -8,6 +8,17 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { InsertComponent } from './insert/insert.component';
 import { FooterComponent } from './footer/footer.component';
+import { ItemListComponent } from './item-list/item-list.component';
+import { CardComponent } from './card/card.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -16,13 +27,24 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     ProductComponent,
     InsertComponent,
-    FooterComponent
+    FooterComponent,
+    ItemListComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
