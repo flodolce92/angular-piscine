@@ -27,12 +27,22 @@
 }
 
 .menu-items a {
-	color: #fff;
+	color: #000;
+	background-color: #fff;
 	text-decoration: none;
+	padding: 10px 20px;
+	border-radius: 20px;
+	transition: background-color 0.3s, color 0.3s;
 }
 
 .menu-items a:hover {
-	text-decoration: underline;
+	background-color: #333;
+	color: #fff;
+}
+
+.menu-items .active a {
+	background-color: #333;
+	color: #fff;
 }
 
 .social-icons {
@@ -41,14 +51,15 @@
 }
 
 .search-bar {
-	margin-right: auto;
+	flex-grow: 1;
+	margin-right: 20px;
 }
 
 .search-bar input {
+	width: 100%;
 	padding: 5px;
 	border-radius: 5px;
 	border: none;
-	margin-right: 10px;
 }
 
 .social-icons a {
