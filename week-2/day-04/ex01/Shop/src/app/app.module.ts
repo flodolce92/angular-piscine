@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { InsertComponent } from './insert/insert.component';
 import { FooterComponent } from './footer/footer.component';
-import { ItemListComponent } from './item-list/item-list.component';
 import { CardComponent } from './card/card.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -28,7 +27,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     ProductComponent,
     InsertComponent,
     FooterComponent,
-    ItemListComponent,
     CardComponent
   ],
   imports: [
